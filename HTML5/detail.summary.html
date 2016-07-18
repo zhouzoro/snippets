@@ -1,0 +1,67 @@
+<style id="jsbin-css">
+details {
+	display:block; 
+	width:300px;
+	margin:10px 0;
+}
+summary {
+	display:block; 
+	background:#99B92C;
+	color:white;
+	border-radius:5px;
+	padding:5px;
+	cursor:pointer;font-weight:bold;
+}
+
+summary::-webkit-details-marker {
+   color:#FF0000; 
+   background:#FFFFFF; 
+}
+
+details[open] summary::-webkit-details-marker {
+   color:#0000FF; 
+   background:#00FFFF;
+}
+summary::-webkit-details-marker {
+   display: none
+}
+
+summary:before {
+   content: "+";
+   color: #FF00FF;
+   float: left;
+   font-size: 1.5em;
+   font-weight: bold;
+   margin: -5px 5px 0 0;
+   padding: 0;
+   text-align: center;
+   width: 20px;
+}
+
+details[open] summary:before {
+   content: "-";
+  color: #FFFFFF
+}
+</style>
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2015 by zhouzoro (http://jsbin.com/yidodo/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<body>
+
+<details>
+<summary>How to beat the boss...spoiler alert !</summary>
+<p> Just aim to the red spots near his eyes</p>
+<p>Keep shooting at these spots until the eyes open, then hit quickly both eyes with your laser beam.</p>
+
+</details>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2015 by anonymous (http://jsbin.com/qozijefafo/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+	<title>Geraldine's Blog</title>
+<style id="jsbin-css">
+html {
+			font-size:100.01%;
+		}
+		/* reset */
+		html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,hr,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfont,thead,tr,th,td{padding:0;margin:0;border:none;outline:none;vertical-align:baseline;font-family:inherit;font-size:100%;}dfn,i,cite,var,address,em{font-style:normal;}th,b,strong,h1,h2,h3,h4,h5,h6{font-weight:normal;}textarea,input,select{font-family:inherit;font-size:1em;}blockquote,q{quotes:none;}q:before,q:after,blockquote:before,blockquote:after{content:'';content:none;}ol,ul{list-style:none;}ins{text-decoration:none;}del{text-decoration:line-through;}table{border-collapse:collapse;border-spacing:0;}caption,th,td{text-align:left;}:focus{outline:none;}
+
+		html, body {
+			height:100%;
+		}
+
+		body {
+			font: .8125em/1.5 Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+			background: #fff;
+			color: #333;
+		}
+
+		header, 
+		nav, 
+		section, 
+		article, 
+		aside, 
+		footer {
+			display: block
+		}
+		a {
+			color: #267;
+			text-decoration: underline
+		}
+		a:hover {
+			color: #722
+		}
+		p {
+			margin: 0 0 1em
+		}
+		
+		header {
+			color: #007e99;
+			font-size: 2.5em;
+			padding: 20px 50px
+		}
+			header span {
+				color: #722
+			}
+			
+		nav {
+			font-size: 1.5em;
+			margin: 5px 0;
+			padding: 20px 50px
+		}
+			nav li {
+				display: inline;
+				margin: 0 15px
+			}
+			nav li:first-child {
+				margin-left: 0
+			}
+			nav span,
+			nav a {
+				padding: 3px 15px 4px
+			}
+			nav span {
+				background: #722;
+				color: #fff
+			}
+
+
+
+
+    nav header {
+        position: absolute !important;
+        clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+        clip: rect(1px, 1px, 1px, 1px);
+        padding:0 !important;
+        border:0 !important;
+        height: 1px !important; 
+        width: 1px !important; 
+        overflow: hidden;
+}
+
+
+
+		
+		section {
+			float: left;
+			padding: 35px 0;
+			position: relative;
+			width: 70%
+		}
+		
+			section article {
+				margin: 0 50px 40px;
+				padding: 25px 0 0;
+				position: relative
+			}
+			section header {
+				font-size: 1em;
+				padding: 0;
+			}
+			section h1 {
+				font-size: 2.3em;
+			}
+		
+
+			footer {
+				clear: both;
+				color: #777;
+				padding: 10px 50px
+			}
+
+			header:hover, 
+			nav:hover, 
+			section:hover, 
+			aside:hover, 
+			footer:hover {
+				background: #eee
+			}
+			article:hover {
+				background: #ccc
+			}
+			article header:hover {
+				background: #ccc
+			}
+</style>
+</head>
+<body>
+<header>
+	<h1>Geraldine's <span>Blog</span></h1>
+</header>
+<nav>
+  <header>
+    <h2>Navigation menu</h2>
+  </header>
+	<ul>
+		<li><span>Articles</span></li>
+		<li><a href="">About</a></li>
+		<li><a href="">Contact</a></li>
+	</ul>
+</nav>
+<section>
+  <header>    
+    <h1>Blog posts for May 2015</h1>    
+  </header>
+   <article>
+      <h1>Hide some heading: good practice</h1>
+      <p>This example shows how to hide the heading of the nav element above, while keeping it present in the table of content ?</p>
+     <p>It uses the CSS rule in order to hide the &lt;h2&gt;Navigation menu&lt;/h2&gt; in the &lt;nav&gt;...&lt;/nav&gt;:</p>
+     <pre>
+    nav header {
+       position: absolute !important;
+        clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+        clip: rect(1px, 1px, 1px, 1px);
+        padding:0 !important;
+        border:0 !important;
+        height: 1px !important; 
+        width: 1px !important; 
+        overflow: hidden;
+}       
+     </pre>
+      </article>
+  
+</section>
+<footer>
+	<p>&copy; 2009 Some blog</p>
+</footer>
+</body>
+</html>

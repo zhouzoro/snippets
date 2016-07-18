@@ -1,0 +1,170 @@
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2015 by troyp (http://jsbin.com/qociye/3/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta name="description" content="HTML5 detail summary example (polyfill: gist.github.com/remy/370590)">
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style id="jsbin-css">
+    summary,
+    details {
+      display: block;
+    }
+    
+    details {
+      visibility: hidden;
+    }
+    
+    details > summary {
+      visibility: visible;
+    }
+    
+    details[open] summary.no-det:before {
+      transform: rotate(90deg);
+    }
+    
+    details[open] {
+      visibility: visible;
+    }
+    
+    details summary,
+    details {
+      display: block;
+      font-family: Calluna, Arial, sans-serif;
+      background: #333;
+      width: 15em;
+      border-radius: .1em .1em 0 0;
+      font-size: 1.5rem;
+      margin: 2rem auto;
+      color: #fff;
+    }
+    
+    details summary {
+      cursor: pointer;
+      padding: 1em;
+      padding-left: 3rem;
+      margin-top: 0;
+    }
+    
+    details {
+      background: linear-gradient(#999, #ddd);
+      border-radius: .1em;
+      padding-top: 0;
+      width: 18em;
+      color: #000;
+    }
+    
+    details summary::before {
+      content: "►";
+      font-size: 1em;
+      position: relative;
+      left: -1em;
+      transition: .3s linear;
+    }
+    
+    details[open] summary::before {
+      content: "▼";
+      font-size: 1em;
+      position: relative;
+      left: -1em;
+      transition: .3s linear;
+      color: red;
+    }
+    
+    summary:hover {
+      cursor: pointer;
+    }
+    
+    details[open] {
+      padding-bottom: 1rem;
+    }
+    
+    details.no-details {
+      max-height: 3em;
+      overflow: hidden;
+      transition: 1s max-height ease-in-out;
+    }
+    
+    details.no-details[open] {
+      max-height: 20em;
+      padding-bottom: 1em;
+    }
+    
+    details a {
+      display: block;
+    }
+    
+    summary:focus {
+      outline: yellow solid 2px;
+    }
+    
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    details div {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <details id="example" role="group" aria-label="information">
+    <summary tabindex="0" role="button" aria-controls="example">
+      HTML5 detail/summary
+    </summary>
+    <div>
+      Content
+      <ul style="font-size: large;">
+        <li>Spacing is correct.</li>
+      </ul>
+      <details id="example" role="group" aria-label="information">
+        <summary tabindex="0" role="button" aria-controls="example">Nested <code>&lt;detail&gt;</code> element</summary>
+        <div>
+          Nested content.
+          <ul style="font-size: large;">
+            <li>Does the polyfill handle nested <code>&lt;detail&gt;</code> elements?</li>
+            <ul style="font-size: medium;">
+              <li>Yes, mostly. There is a logic error that causes a click on the child element to toggle both the child <em>and</em>                the parent. Which makes opening the child require clicking the child and then reopening the parent (which
+                just closed). Shouldn't be hard to fix.</li>
+              <li>As a result, when the parent <code>&lt;detail&gt;</code> element is opened, the background colour extends to
+                cover the area "reserved" for the child elements, even though their content remains invisible.</li>
+            </ul>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </details>
+  <details id="example" role="group" aria-label="information">
+    <summary tabindex="0" role="button" aria-controls="example">2nd top-level <code>&lt;detail&gt;</code> element</summary>
+    <div>
+      Content.
+    </div>
+  </details>
+  <details id="example" role="group" aria-label="information">
+    <summary tabindex="0" role="button" aria-controls="example">3rd top-level <code>&lt;detail&gt;</code> element</summary>
+    <div>
+      Content.
+    </div>
+  </details>
+
+  <script>
+    (function(e,t){function r(e){var t=null;if(e.firstChild.nodeName!="#text"){return e.firstChild}else{e=e.firstChild;do{e=e.nextSibling}while(e&&e.nodeName=="#text");return e||null}}function i(e){var t=e.nodeName.toUpperCase();if(t=="DETAILS"){return false}else if(t=="SUMMARY"){return true}else{return i(e.parentNode)}}function s(e){var n=e.type=="keypress",r=e.target||e.srcElement;if(n||i(r)){if(n){n=e.which||e.keyCode;if(n==32||n==13){}else{return}}var s=this.getAttribute("open");if(s===null){this.setAttribute("open","open")}else{this.removeAttribute("open")}setTimeout(function(){t.body.className=t.body.className},13);if(n){e.preventDefault&&e.preventDefault();return false}}}function o(){var e=t.createElement("style"),n=t.getElementsByTagName("head")[0],r=e.innerText===undefined?"textContent":"innerText";var i=["details{display: block;}","details > *{display: none;}","details.open > *{display: block;}","details[open] > *{display: block;}","details > summary:first-child{display: block;cursor: pointer;}",'summary:before{content: "▶ ";}',"details[open]{display: block;}"];f=i.length;e[r]=i.join("\n");n.insertBefore(e,n.firstChild)}if("open"in t.createElement("details"))return;var n=function(){if(t.addEventListener){return function(t,r,i){if(t&&t.nodeName||t===e){t.addEventListener(r,i,false)}else if(t&&t.length){for(var s=0;s<t.length;s++){n(t[s],r,i)}}}}else{return function(t,r,i){if(t&&t.nodeName||t===e){t.attachEvent("on"+r,function(){return i.call(t,e.event)})}else if(t&&t.length){for(var s=0;s<t.length;s++){n(t[s],r,i)}}}}}();var u=t.getElementsByTagName("details"),a,f=u.length,l,c=null,h=t.createElement("summary");h.appendChild(t.createTextNode("Details"));while(f--){c=r(u[f]);if(c!=null&&c.nodeName.toUpperCase()=="SUMMARY"){}else{c=t.createElement("summary");c.appendChild(t.createTextNode("Details"));if(u[f].firstChild){u[f].insertBefore(c,u[f].firstChild)}else{u[f].appendChild(c)}}l=u[f].childNodes.length;while(l--){if(u[f].childNodes[l].nodeName==="#text"&&(u[f].childNodes[l].nodeValue||"").replace(/\s/g,"").length){a=t.createElement("text");a.appendChild(u[f].childNodes[l]);u[f].insertBefore(a,u[f].childNodes[l])}}c.legend=true;c.tabIndex=0}t.createElement("details");n(u,"click",s);n(u,"keypress",s);o()})(window,document)
+
+  </script>
+
+</body>
+
+</html>
